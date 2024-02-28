@@ -1,0 +1,324 @@
+<div class="row">
+  <div class="column">
+    <div class="register-form">
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="column">
+          <div class="form-group">
+            <label>LNG Plant Capacity (in mtpa)</label>
+            <input type="text" formControlName="lngPlantCapacity" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['lngPlantCapacity'].errors }" />
+            <div *ngIf="submitted && f['lngPlantCapacity'].errors" class="invalid-feedback">
+              <div *ngIf="f['lngPlantCapacity'].errors['required']">LNG Plant Capacity is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Capacity Utilization (0%-100%)</label>
+            <input type="text" formControlName="capacityUtilization" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['capacityUtilization'].errors }" />
+            <div *ngIf="submitted && f['capacityUtilization'].errors" class="invalid-feedback">
+              <div *ngIf="f['capacityUtilization'].errors['required']">Capacity Utilization is required</div>
+              <div *ngIf="f['capacityUtilization'].errors['maxLength']">
+                Capacity Utilization must between 0-100%
+              </div>
+              <div *ngIf="f['capacityUtilization'].errors['max']">
+                Capacity Utilization must between 0-100%
+              </div>
+              <div *ngIf="f['capacityUtilization'].errors['min']">
+                Capacity Utilization must between 0-100%
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Offtake-long term Contracts (0%-100%)</label>
+            <input type="text" formControlName="offtakeLongtermCOntracts" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['offtakeLongtermCOntracts'].errors }" />
+            <div *ngIf="submitted && f['offtakeLongtermCOntracts'].errors" class="invalid-feedback">
+              <div *ngIf="f['offtakeLongtermCOntracts'].errors['required']">Offtake-long term Contracts is required
+              </div>
+              <div *ngIf="f['offtakeLongtermCOntracts'].errors['maxLength']">
+                Offtake-long term Contracts must between 0-100%
+              </div>
+              <div *ngIf="f['offtakeLongtermCOntracts'].errors['max']">
+                Offtake-long term Contracts must between 0-100%
+              </div>
+              <div *ngIf="f['offtakeLongtermCOntracts'].errors['min']">
+                Offtake-long term Contracts must between 0-100%
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Equity Stack Share Holder1 (0%-100%)</label>
+            <input type="text" formControlName="equityShareHolder1" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['equityShareHolder1'].errors }" />
+            <div *ngIf="submitted && f['equityShareHolder1'].errors" class="invalid-feedback">
+              <div *ngIf="f['equityShareHolder1'].errors['required']">Equity Stack is required</div>
+              <div *ngIf="f['equityShareHolder1'].errors['maxLength']">
+                Equity Stack must between 0-100%
+              </div>
+              <div *ngIf="f['equityShareHolder1'].errors['max']">
+                Equity Stack must between 0-100%
+              </div>
+              <div *ngIf="f['equityShareHolder1'].errors['min']">
+                Equity Stack must between 0-100%
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Equity Stack Share Holder2 (0%-100%)</label>
+            <input type="text" formControlName="equityShareHolder2" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['equityShareHolder2'].errors }" />
+            <div *ngIf="submitted && f['equityShareHolder2'].errors" class="invalid-feedback">
+              <div *ngIf="f['equityShareHolder2'].errors['required']">Equity Stack is required</div>
+              <div *ngIf="f['equityShareHolder2'].errors['maxLength']">
+                Equity Stack must between 0-100%
+              </div>
+              <div *ngIf="f['equityShareHolder2'].errors['max']">
+                Equity Stack must between 0-100%
+              </div>
+              <div *ngIf="f['equityShareHolder2'].errors['min']">
+                Equity Stack must between 0-100%
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="form-group">
+            <label>Interest Rate of Debt Financing(0%-100%)</label>
+            <input type="text" formControlName="interestRateofDebtFinancing" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['interestRateofDebtFinancing'].errors }" />
+            <div *ngIf="submitted && f['interestRateofDebtFinancing'].errors" class="invalid-feedback">
+              <div *ngIf="f['interestRateofDebtFinancing'].errors['required']">Debt financing is required</div>
+              <div *ngIf="f['interestRateofDebtFinancing'].errors['maxLength']">
+                Interest Rate of Debt financing must between 0-100%
+              </div>
+              <div *ngIf="f['interestRateofDebtFinancing'].errors['max']">
+                Interest Rate of Debt financing must between 0-100%
+              </div>
+              <div *ngIf="f['interestRateofDebtFinancing'].errors['min']">
+                Interest Rate of Debt financing must between 0-100%
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Debt financing (0%-100%)</label>
+            <input type="text" formControlName="debtFiancing" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['debtFiancing'].errors }" />
+            <div *ngIf="submitted && f['debtFiancing'].errors" class="invalid-feedback">
+              <div *ngIf="f['debtFiancing'].errors['required']">Debt financing is required</div>
+              <div *ngIf="f['debtFiancing'].errors['maxLength']">
+                Debt financing must between 0-100%
+              </div>
+              <div *ngIf="f['debtFiancing'].errors['max']">
+                Debt financing must between 0-100%
+              </div>
+              <div *ngIf="f['debtFiancing'].errors['min']">
+                Debt financing must between 0-100%
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Equity Financing (0%-100%)</label>
+            <input type="text" formControlName="equatyFiancing" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['equatyFiancing'].errors }" />
+            <div *ngIf="submitted && f['equatyFiancing'].errors" class="invalid-feedback">
+              <div *ngIf="f['equatyFiancing'].errors['required']">Equity Financing is required</div>
+              <div *ngIf="f['equatyFiancing'].errors['maxLength']">
+                Equity Financing must between 0-100%
+              </div>
+              <div *ngIf="f['equatyFiancing'].errors['max']">
+                Equity Financing must between 0-100%
+              </div>
+              <div *ngIf="f['equatyFiancing'].errors['min']">
+                Equity Financing must between 0-100%
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Cost of debt (0%-100%)</label>
+            <input type="text" formControlName="costOfDebt" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['costOfDebt'].errors }" />
+            <div *ngIf="submitted && f['costOfDebt'].errors" class="invalid-feedback">
+              <div *ngIf="f['costOfDebt'].errors['required']">Cost of debt is required</div>
+              <div *ngIf="f['costOfDebt'].errors['maxLength']">
+                Cost of debt must between 0-100%
+              </div>
+              <div *ngIf="f['costOfDebt'].errors['max']">
+                Cost of debt must between 0-100%
+              </div>
+              <div *ngIf="f['costOfDebt'].errors['min']">
+                Cost of debt must between 0-100%
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Cost of Equity (0%-100%)</label>
+            <input type="text" formControlName="costOfEquaty" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['costOfEquaty'].errors }" />
+            <div *ngIf="submitted && f['costOfEquaty'].errors" class="invalid-feedback">
+              <div *ngIf="f['costOfEquaty'].errors['required']">Cost of Equity is required</div>
+              <div *ngIf="f['costOfEquaty'].errors['maxLength']">
+                Cost of Equity must between 0-100%
+              </div>
+              <div *ngIf="f['costOfEquaty'].errors['max']">
+                Cost of Equity must between 0-100%
+              </div>
+              <div *ngIf="f['costOfEquaty'].errors['min']">
+                Cost of Equity must between 0-100%
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Natural gas price ($/thousand cubic feet)</label>
+            <input type="text" formControlName="naturalGasPrice" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['naturalGasPrice'].errors }" />
+            <div *ngIf="submitted && f['naturalGasPrice'].errors" class="invalid-feedback">
+              <div *ngIf="f['naturalGasPrice'].errors['required']">Natural gas price is required</div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <label>LNG price ($/thousand cubic feet)</label>
+            <input type="text" formControlName="lngPrice" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['lngPrice'].errors }" />
+            <div *ngIf="submitted && f['lngPrice'].errors" class="invalid-feedback">
+              <div *ngIf="f['lngPrice'].errors['required']">LNG price is required</div>
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="column">
+          <div class="form-group">
+            <label>Natural Gas Liquafaction per unit cost</label>
+            <input type="text" formControlName="naturalGasLiquafactionperunitcost" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['naturalGasLiquafactionperunitcost'].errors }" />
+            <div *ngIf="submitted && f['naturalGasLiquafactionperunitcost'].errors" class="invalid-feedback">
+              <div *ngIf="f['naturalGasLiquafactionperunitcost'].errors['required']">Natural Gas Liquafaction per unit cost</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Corporate Tax Rate</label>
+            <input type="text" formControlName="CorporateTaxRate" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['CorporateTaxRate'].errors }" />
+            <div *ngIf="submitted && f['CorporateTaxRate'].errors" class="invalid-feedback">
+              <div *ngIf="f['CorporateTaxRate'].errors['required']">Corporate Tax Rate is required</div>
+              <div *ngIf="f['CorporateTaxRate'].errors['maxLength']">
+                Capacity Utilization must between 0-100%
+              </div>
+              <div *ngIf="f['CorporateTaxRate'].errors['max']">
+                Capacity Utilization must between 0-100%
+              </div>
+              <div *ngIf="f['CorporateTaxRate'].errors['min']">
+                Capacity Utilization must between 0-100%
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Return Sharing to Shareholders</label>
+            <input type="text" formControlName="returnSharingtoShareholders" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['returnSharingtoShareholders'].errors }" />
+            <div *ngIf="submitted && f['returnSharingtoShareholders'].errors" class="invalid-feedback">
+              <div *ngIf="f['returnSharingtoShareholders'].errors['required']">Return Sharing to Shareholders is required
+              </div>
+              <div *ngIf="f['returnSharingtoShareholders'].errors['maxLength']">
+                Return Sharing to Shareholders must between 0-100%
+              </div>
+              <div *ngIf="f['returnSharingtoShareholders'].errors['max']">
+                Return Sharing to Shareholders must between 0-100%
+              </div>
+              <div *ngIf="f['returnSharingtoShareholders'].errors['min']">
+                Return Sharing to Shareholders must between 0-100%
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Offtake Agreement of Shareholder2</label>
+            <input type="text" formControlName="OfftakeAgreementofShareholder2" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['OfftakeAgreementofShareholder2'].errors }" />
+            <div *ngIf="submitted && f['OfftakeAgreementofShareholder2'].errors" class="invalid-feedback">
+              <div *ngIf="f['OfftakeAgreementofShareholder2'].errors['required']">Offtake Agreement of Shareholder2 is required</div>
+              <div *ngIf="f['OfftakeAgreementofShareholder2'].errors['maxLength']">
+                Offtake Agreement of Shareholder2 must between 0-100%
+              </div>
+              <div *ngIf="f['OfftakeAgreementofShareholder2'].errors['max']">
+                Offtake Agreement of Shareholder2 must between 0-100%
+              </div>
+              <div *ngIf="f['OfftakeAgreementofShareholder2'].errors['min']">
+                Offtake Agreement of Shareholder2 must between 0-100%
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Long Term Contract</label>
+            <input type="text" formControlName="longTermContract" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['longTermContract'].errors }" />
+            <div *ngIf="submitted && f['longTermContract'].errors" class="invalid-feedback">
+              <div *ngIf="f['longTermContract'].errors['required']">Long Term Contract</div>
+              <div *ngIf="f['longTermContract'].errors['maxLength']">
+                Long Term Contract must between 0-100%
+              </div>
+              <div *ngIf="f['longTermContract'].errors['max']">
+                Long Term Contract must between 0-100%
+              </div>
+              <div *ngIf="f['longTermContract'].errors['min']">
+                Long Term Contract must between 0-100%
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Percent Addition to LNG Export price in US</label>
+            <input type="text" formControlName="percentAdditiontoLNGExportpriceinUS" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['percentAdditiontoLNGExportpriceinUS'].errors }" />
+            <div *ngIf="submitted && f['percentAdditiontoLNGExportpriceinUS'].errors" class="invalid-feedback">
+              <div *ngIf="f['percentAdditiontoLNGExportpriceinUS'].errors['required']">Percent Addition to LNG Export price in US is required</div>
+              <div *ngIf="f['percentAdditiontoLNGExportpriceinUS'].errors['maxLength']">
+                Equity Financing must between 0-100%
+              </div>
+              <div *ngIf="f['percentAdditiontoLNGExportpriceinUS'].errors['max']">
+                Equity Financing must between 0-100%
+              </div>
+              <div *ngIf="f['percentAdditiontoLNGExportpriceinUS'].errors['min']">
+                Equity Financing must between 0-100%
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>JKMLNG price</label>
+            <input type="text" formControlName="JKMLNGprice" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['JKMLNGprice'].errors }" />
+            <div *ngIf="submitted && f['JKMLNGprice'].errors" class="invalid-feedback">
+              <div *ngIf="f['JKMLNGprice'].errors['required']">JKMLNG price is required</div>
+              <div *ngIf="f['JKMLNGprice'].errors['maxLength']">
+                JKMLNG pricemust between 0-100%
+              </div>
+              <div *ngIf="f['JKMLNGprice'].errors['max']">
+                JKMLNG price must between 0-100%
+              </div>
+              <div *ngIf="f['JKMLNGprice'].errors['min']">
+                JKMLNG price must between 0-100%
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+  <div class="column">
+
+  </div>
+</div>
