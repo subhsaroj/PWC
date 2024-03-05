@@ -20,7 +20,7 @@ export class AppComponent {
     offtakeLongtermCOntracts: new FormControl(''),
     equityShareHolder1: new FormControl(''),
     equityShareHolder2: new FormControl(''),
-    
+    feedGasSuppliedByShareHolder2:new FormControl(''),
     interestRateofDebtFinancing: new FormControl(''),
     debtFiancing: new FormControl(''),
     equatyFiancing: new FormControl(''),
@@ -49,7 +49,7 @@ export class AppComponent {
         offtakeLongtermCOntracts: ['', Validators.required, Validators.maxLength(2), Validators.max(100), Validators.min(0)],
         equityShareHolder1: ['', Validators.required, Validators.maxLength(2), Validators.max(100), Validators.min(0)],
         equityShareHolder2: ['', Validators.required, Validators.maxLength(2), Validators.max(100), Validators.min(0)],
-     
+        feedGasSuppliedByShareHolder2:['', Validators.required],
         interestRateofDebtFinancing: ['', Validators.required],
         debtFiancing: ['', Validators.required, Validators.maxLength(2), Validators.max(100), Validators.min(0)],
         equatyFiancing: ['', Validators.required, Validators.maxLength(2), Validators.max(100), Validators.min(0)],

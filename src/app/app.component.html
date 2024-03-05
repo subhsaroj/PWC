@@ -120,7 +120,24 @@
               </div>
             </div>
           </div>
-
+          <div class="form-group">
+            <label>Feed Gas Supplied By ShareHolder2</label>
+            <input type="text" formControlName="feedGasSuppliedByShareHolder2" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['feedGasSuppliedByShareHolder2'].errors }" />
+            <div *ngIf="submitted && f['feedGasSuppliedByShareHolder2'].errors" class="invalid-feedback">
+              <div *ngIf="f['feedGasSuppliedByShareHolder2'].errors['required']">Feed Gas Supplied By ShareHolder2 is required</div>
+              <div *ngIf="f['feedGasSuppliedByShareHolder2'].errors['maxLength']">
+                Debt financing must between 0-100%
+              </div>
+              <div *ngIf="f['feedGasSuppliedByShareHolder2'].errors['max']">
+                Debt financing must between 0-100%
+              </div>
+              <div *ngIf="f['feedGasSuppliedByShareHolder2'].errors['min']">
+                Debt financing must between 0-100%
+              </div>
+            </div>
+          </div>
+          
           <div class="form-group">
             <label>Equity Financing (0%-100%)</label>
             <input type="text" formControlName="equatyFiancing" class="form-control"
@@ -319,6 +336,6 @@
 
   </div>
   <div class="column">
-
+<app-tutorial-details></app-tutorial-details>
   </div>
 </div>
