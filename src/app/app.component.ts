@@ -37,6 +37,7 @@ export class AppComponent {
     JKMLNGprice: new FormControl(''),
 
   });
+  inputFormValues:any;
   submitted = false;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -77,12 +78,14 @@ export class AppComponent {
     if (this.form.invalid) {
       return;
     }
-
-    console.log(JSON.stringify(this.form.value, null, 2));
+    this.inputFormValues = JSON.stringify(this.form.value, null, 2)
+    //console.log(JSON.stringify(this.form.value, null, 2));
   }
 
   onReset(): void {
     this.submitted = false;
     this.form.reset();
   }
+
+
 }

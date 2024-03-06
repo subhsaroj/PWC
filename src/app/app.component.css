@@ -7,27 +7,16 @@ p {
   }
   
   .register-form {
-    max-width: 350px;
+    max-width: 80%;
     margin: auto;
+    padding:5%;
+    background-color: whitesmoke;
+
+    border: 0px solid grey;
   }
   * {
     box-sizing: border-box;
   }
   
-  /* Create two equal columns that floats next to each other */
-  .column {
-    float: left;
-    width: 50%;
-    padding: 1%;
-    height: 300px; /* Should be removed. Only for demonstration */
-    border-color: black;
-    border: 50px;
-  }
   
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
   
