@@ -41,28 +41,27 @@ export class TutorialDetailsComponent implements OnInit {
   }
   public set inputFormValues(formValues: any) {
     this._inputFormValues = formValues;
-    this.lngPlantCapacity = 9;
-    this.capacityUtilization = 90;
-    this.offtakeLongtermCOntracts = 100;
-    this.equityShareHolder1= 70;
-    this.equityShareHolder2 = 30;
-    this.interestRateofDebtFinancing = 5;//where is the value coming from
-
-    this.debtFiancing = 70;
-    this.equatyFiancing = 0;
-    this.costOfDebt = 5;
-    this.costOfEquaty = 15;
-    this.lngPrice = 645;
-    this.naturalGasPrice = 0;
-    this.naturalGasLiquafactionperunitcost = 105;
-    this.CorporateTaxRate = 25;
-    this.returnSharingtoShareholders = 0;
-    this.OfftakeAgreementofShareholder2 = 0;
-    this.longTermContract = 0;
-    this.percentAdditiontoLNGExportpriceinUS = 0;
-    this.JKMLNGprice = 0;
-    this.onemtpaprojectcost= 1;
-    this.feedGasSuppliedByShareHolder2 = 0;
+    this.lngPlantCapacity = this._inputFormValues.lngPlantCapacity;
+    this.capacityUtilization = this._inputFormValues.capacityUtilization;
+    this.offtakeLongtermCOntracts = this._inputFormValues.offtakeLongtermCOntracts;
+    this.equityShareHolder1= this._inputFormValues.equityShareHolder1;
+    this.equityShareHolder2 = this._inputFormValues.equityShareHolder2;
+    this.interestRateofDebtFinancing = this._inputFormValues.interestRateofDebtFinancing;//where is the value coming from
+    this.debtFiancing = this._inputFormValues.debtFiancing;
+    this.equatyFiancing = this._inputFormValues.equatyFiancing;
+    this.costOfDebt = this._inputFormValues.costOfDebt;
+    this.costOfEquaty = this._inputFormValues.costOfEquaty;
+    this.lngPrice = this._inputFormValues.lngPrice;
+    this.naturalGasPrice = this._inputFormValues.naturalGasPrice;
+    this.naturalGasLiquafactionperunitcost = this._inputFormValues.naturalGasLiquafactionperunitcost;
+    this.CorporateTaxRate = this._inputFormValues.CorporateTaxRate;
+    this.returnSharingtoShareholders = this._inputFormValues.returnSharingtoShareholders;
+    this.OfftakeAgreementofShareholder2 = this._inputFormValues.OfftakeAgreementofShareholder2;
+    this.longTermContract = this._inputFormValues.longTermContract;
+    this.percentAdditiontoLNGExportpriceinUS = this._inputFormValues.percentAdditiontoLNGExportpriceinUS;
+    this.JKMLNGprice = this._inputFormValues.JKMLNGprice;
+    this.onemtpaprojectcost= this._inputFormValues.onemtpaprojectcost;
+    this.feedGasSuppliedByShareHolder2 = this._inputFormValues.feedGasSuppliedByShareHolder2;
   }
 
   constructor(
