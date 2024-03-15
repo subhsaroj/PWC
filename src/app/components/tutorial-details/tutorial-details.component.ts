@@ -26,7 +26,10 @@ export class TutorialDetailsComponent implements OnInit {
   CorporateTaxRate: number = 25;
   returnSharingtoShareholders: number = 0;
   OfftakeAgreementofShareholder2: number = 0;
-  longTermContract: number = 0;
+  longTermContractPercent: number = 0;
+  percentShortTermontract:number = 0;
+  usLNGExportPrice:number = 0;
+  profitSharing:number = 0;
   percentAdditiontoLNGExportpriceinUS: number = 0;
   JKMLNGprice: number = 0;
   onemtpaprojectcost: number = 1;
@@ -57,7 +60,7 @@ export class TutorialDetailsComponent implements OnInit {
     this.CorporateTaxRate = this._inputFormValues.CorporateTaxRate;
     this.returnSharingtoShareholders = this._inputFormValues.returnSharingtoShareholders;
     this.OfftakeAgreementofShareholder2 = this._inputFormValues.OfftakeAgreementofShareholder2;
-    this.longTermContract = this._inputFormValues.longTermContract;
+    this.longTermContractPercent = this._inputFormValues.longTermContract;
     this.percentAdditiontoLNGExportpriceinUS = this._inputFormValues.percentAdditiontoLNGExportpriceinUS;
     this.JKMLNGprice = this._inputFormValues.JKMLNGprice;
     this.onemtpaprojectcost= this._inputFormValues.onemtpaprojectcost;
@@ -81,7 +84,7 @@ export class TutorialDetailsComponent implements OnInit {
   equityInvestmentForShareHolder2(): number {
     return this.TotalLNGprojectcapex() * ((100 - this.debtFiancing) / 100) * ((100 - this.equityShareHolder1) / 100);
   }
-  totalRevenue(): number {
+  totalRevenueLNGPlant(): number {
     return (this.lngPrice) * this.lngPlantCapacity;
   }
   expenses(): number {
@@ -94,7 +97,7 @@ export class TutorialDetailsComponent implements OnInit {
     return this.expenses() + this.otherOpexCost()
   }
   ebitda(): number {
-    return this.totalRevenue() - this.totalCost();
+    return this.totalRevenueLNGPlant() - this.totalCost();
   }
   dAndA(): number {
     return (this.lngPlantCapacity * this.onemtpaprojectcost) / 40;
@@ -117,17 +120,40 @@ export class TutorialDetailsComponent implements OnInit {
   patForTwo(): number {
     return this.pat() * this.equityShareHolder2 * this.returnSharingtoShareholders;
   }
+  r1ForTotal():number{
+    let result = this.OfftakeAgreementofShareholder2*this.longTermContractPercent/100*this.lngPrice*(1+this.percentAdditiontoLNGExportpriceinUS/100);
+  return result
+  }
+
+  transportationCost():number{
+    let result = .2*this.JKMLNGprice;
+    return result;
+  }
+  r2ForTotal():number{
+    let result = this.OfftakeAgreementofShareholder2*((100-this.longTermContractPercent)/100)*(this.JKMLNGprice-this.transportationCost()-(this.lngPrice *(1+this.percentAdditiontoLNGExportpriceinUS/100)));
+  return result
+  }
+
+  r3ForTotal():number{
+    let result = this.pat()*this.equityShareHolder2*this.profitSharing;
+     return result;
+  }
+
+  totalRevenueFromSalesMarketingOfLng(){
+    let result = this.r1ForTotal()+ this.r2ForTotal()+this.r3ForTotal();
+    
+  }
   revenueForNGSales(): number {
-    return (this.naturalGasPrice * this.feedGasSuppliedByShareHolder2 * (1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.lngPrice) / 1000
+    return (this.naturalGasPrice * this.feedGasSuppliedByShareHolder2 * (1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.lngPrice) / 1000;
   }
   cogs(): number {
-    return (3 * 52 * ((1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.lngPrice)) / 1001;
+    return (3 * 52 * ((1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.naturalGasPrice)) / 1001;
   }
   opex(): number {
-    return .04 * (this.totalRevenue() + this.revenueForNGSales());
+    return .04 * (this.totalRevenueFromSalesMarketingOfLng() + this.revenueForNGSales());
   }
   ebitdaForIntegrated(): number {
-    return this.totalRevenue() + this.revenueForNGSales() - this.cogs() - this.opex();
+    return this.totalRevenueFromSalesMarketingOfLng() + this.revenueForNGSales() - this.cogs() - this.opex();
   }
   ebitForIntegrated(): number {
     return this.ebitdaForIntegrated() - this.dAndACost;
@@ -144,7 +170,7 @@ export class TutorialDetailsComponent implements OnInit {
   ebitdaForTollingAndmerchant(): number {
     let revenueForNGSalesForTollingAndmerchant = 0;
     let cogs = 0;
-    return this.totalRevenue() + revenueForNGSalesForTollingAndmerchant - cogs - this.opex();
+    return this.totalRevenueFromSalesMarketingOfLng() + revenueForNGSalesForTollingAndmerchant - cogs - this.opex();
   }
   ebitForTollingAndmerchant(): number {
     return this.ebitdaForTollingAndmerchant() - this.dAndACost;
