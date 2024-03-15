@@ -79,157 +79,157 @@ export class TutorialDetailsComponent implements OnInit {
   }
   TotalLNGprojectcapex(): number {
     let result = this.lngPlantCapacity * (this.onemtpaprojectcost) / 1000;
-    console.log(result);
+    console.log('TotalLNGprojectcapex'+result);
     return result;
   }
 
 
   equityInvestmentForShareHolder1(): number {
     let result = this.TotalLNGprojectcapex() * ((100 - this.debtFiancing) / 100) * (this.equityShareHolder1 / 100);
-    console.log(result);
+    console.log('equityInvestmentForShareHolder1'+result);
     return result;
   }
   equityInvestmentForShareHolder2(): number {
     let result = this.TotalLNGprojectcapex() * ((100 - this.debtFiancing) / 100) * ((100 - this.equityShareHolder1) / 100);
-    console.log(result);
+    console.log('equityInvestmentForShareHolder2'+result);
     return result;
   }
   totalRevenueLNGPlant(): number {
     let result = (this.lngPrice) * this.lngPlantCapacity;
-    console.log(result);
+    console.log('totalRevenueLNGPlant'+result);
     return result;
   }
   expenses(): number {
     let result = ((this.naturalGasPrice + this.naturalGasLiquafactionperunitcost) * this.lngPlantCapacity) / 1000;
-    console.log(result);
+    console.log('expenses'+result);
     return result;
   }
   otherOpexCost(): number {
     let result = .04 * this.lngPlantCapacity * this.onemtpaprojectcost;
-    console.log(result);
+    console.log('otherOpexCost'+result);
     return result;
   }
   totalCost(): number {
     let result = this.expenses() + this.otherOpexCost();
-    console.log(result);
+    console.log('totalCost'+result);
     return result;
   }
   ebitda(): number {
     let result = this.totalRevenueLNGPlant() - this.totalCost();
-    console.log(result);
+    console.log('ebitda'+result);
     return result;
   }
   dAndA(): number {
     let result = (this.lngPlantCapacity * this.onemtpaprojectcost) / 40;
-    console.log(result);
+    console.log('dAndA'+result);
     return result;
   }
   ebit(): number {
     let result = this.ebitda() - this.dAndA();
-    console.log(result);
+    console.log('ebit'+result);
     return result;
   }
   interest(): number {
     let result = this.interestRateofDebtFinancing * (this.debtFiancing / 100) * (this.lngPlantCapacity * this.onemtpaprojectcost);
-    console.log(result);
+    console.log('interest'+result);
     return result;
   }
   tax(): number {
     let result = this.CorporateTaxRate * (this.ebit() - this.interest());
-    console.log(result);
+    console.log('tax'+result);
     return result;
   }
   patForLNGTerminal(): number {
     let result = (this.ebitda() - this.dAndA()) - (this.interest()) - this.tax();
-    console.log(result);
+    console.log('patForLNGTerminal'+result);
     return result;
   }
   patForOne(): number {
     let result = this.patForLNGTerminal() * this.equityShareHolder1 * this.returnSharingtoShareholders;
-    console.log(result);
+    console.log('patForOne'+result);
     return result;
   }
   patForTwo(): number {
     let result = this.patForLNGTerminal() * this.equityShareHolder2 * this.returnSharingtoShareholders;
-    console.log(result);
+    console.log('patForTwo'+result);
     return result;
   }
   r1ForTotalFromSalesMarketingOfLng(): number {
-    let result = this.OfftakeAgreementofShareholder2 * this.longTermContractPercent / 100 * this.lngPrice * (1 + this.percentAdditiontoLNGExportpriceinUS / 100);
-    console.log(result);
+    let result = this.OfftakeAgreementofShareholder2 * this.longTermContractPercent / 100 * this.lngPrice * (1 + this.percentAdditiontoLNGExportpriceinUS / 100)/1000;
+    console.log('r1ForTotalFromSalesMarketingOfLng'+result);
     return result;
   }
 
   transportationCostFromSalesMarketingOfLng(): number {
     let result = .2 * this.JKMLNGprice;
-    console.log(result);
+    console.log('transportationCostFromSalesMarketingOfLng'+result);
     return result;
   }
   r2ForTotalFromSalesMarketingOfLng(): number {
-    let result = this.OfftakeAgreementofShareholder2 * ((100 - this.longTermContractPercent) / 100) * (this.JKMLNGprice - this.transportationCostFromSalesMarketingOfLng() - (this.lngPrice * (1 + this.percentAdditiontoLNGExportpriceinUS / 100)));
-    console.log(result);
+    let result = this.OfftakeAgreementofShareholder2 * ((100 - this.longTermContractPercent) / 100) * (this.JKMLNGprice - this.transportationCostFromSalesMarketingOfLng() - (this.lngPrice * (1 + this.percentAdditiontoLNGExportpriceinUS / 100)))/1000;
+    console.log('r2ForTotalFromSalesMarketingOfLng'+result);
     return result
   }
 
   r3ForTotalFromSalesMarketingOfLng(): number {
-    let result = this.patForLNGTerminal() * this.equityShareHolder2 * this.returnSharingtoShareholders;
-    console.log(result);
+    let result = this.patForLNGTerminal() * this.equityShareHolder2 * this.returnSharingtoShareholders/1000;
+    console.log('r3ForTotalFromSalesMarketingOfLng'+result);
     return result;
   }
 
   totalRevenueFromSalesMarketingOfLng(): number {
     let result = this.r1ForTotalFromSalesMarketingOfLng() + this.r2ForTotalFromSalesMarketingOfLng() + this.r3ForTotalFromSalesMarketingOfLng();
-    console.log(result);
+    console.log('totalRevenueFromSalesMarketingOfLng'+result);
     return result;
   }
   revenueForNGSalesForIntegrated(): number {
     let result = (this.naturalGasPrice * this.feedGasSuppliedByShareHolder2 * (1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.lngPrice) / 1000;
-    console.log(result);
+    console.log('revenueForNGSalesForIntegrated'+result);
     return result;
   }
   cogsForIntegrated(): number {
     let result = (3 * 52 * ((1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.naturalGasPrice)) / 1000;
-    console.log(result);
+    console.log('cogsForIntegrated'+result);
     return result;
   }
   opexForIntegrated(): number {
 
     let result = .04 * (this.totalRevenueFromSalesMarketingOfLng() + this.revenueForNGSalesForIntegrated());
-    console.log(result);
+    console.log('opexForIntegrated'+result);
     return result;
   }
   ebitdaForIntegrated(): number {
     let result = this.totalRevenueFromSalesMarketingOfLng() + this.revenueForNGSalesForIntegrated() - this.cogsForIntegrated() - this.opexForIntegrated();
-    console.log(result);
+    console.log('ebitdaForIntegrated'+result);
     return result;
   }
   ebitForIntegrated(): number {
     let result = this.ebitdaForIntegrated() - this.dAndACost;
-    console.log(result);
+    console.log('ebitForIntegrated'+result);
     return result;
   }
   taxForIntegrated(): number {
     let interestForIntegrated = .01;
     let result = this.CorporateTaxRate * (this.ebitForIntegrated() - interestForIntegrated);
-    console.log(result);
+    console.log('taxForIntegrated'+result);
     return result;
   }
   patForIntegrated(): number {
     let interestForIntegrated = .01;
     let result = this.ebitForIntegrated() - interestForIntegrated - this.taxForIntegrated();
-    console.log(result);
+    console.log('patForIntegrated'+result);
     return result;
   }
 
   totalRevenueForTollingAndmerchant(): number {
     let result = this.r1ForTotalFromSalesMarketingOfLng() + this.r2ForTotalFromSalesMarketingOfLng() + this.r3ForTotalFromSalesMarketingOfLng();
-    console.log(result);
+    console.log('totalRevenueForTollingAndmerchant'+result);
     return result;
   }
 
   opexForTollingAndMerchant(): number {
     let result = .04 * (this.totalRevenueForTollingAndmerchant());
-    console.log(result);
+    console.log('opexForTollingAndMerchant'+result);
     return result;
   }
   ebitdaForTollingAndmerchant(): number {
@@ -237,66 +237,66 @@ export class TutorialDetailsComponent implements OnInit {
     let cogs = 0;
     let result = this.totalRevenueForTollingAndmerchant() + revenueForNGSalesForTollingAndmerchant - cogs - this.opexForTollingAndMerchant();
 
-    console.log(result);
+    console.log('ebitdaForTollingAndmerchant'+result);
     return result;
   }
   ebitForTollingAndmerchant(): number {
     let result = this.ebitdaForTollingAndmerchant() - this.dAndACost;
-    console.log(result);
+    console.log('ebitForTollingAndmerchant'+result);
     return result;
   }
   taxForTollingAndmerchant(): number {
     let interestForIntegrated = .03;
     let result = this.CorporateTaxRate * (this.ebitForTollingAndmerchant() - interestForIntegrated);
-    console.log(result);
+    console.log('taxForTollingAndmerchant'+result);
     return result;
   }
   patForTollingAndmerchant(): number {
     let interestForIntegrated = .03;
     let result = this.ebitForTollingAndmerchant() - interestForIntegrated - this.taxForTollingAndmerchant();
-    console.log(result);
+    console.log('patForTollingAndmerchant'+result);
     return result;
   }
 
   revenueForTolling(): number {
     let result = this.liquifactionCost * this.lngPlantCapacity / 1000;
-    console.log(result);
+    console.log('revenueForTolling'+result);
     return result;
   }
   opexForTolling(): number {
     let result = this.TotalLNGprojectcapex() / 1000;
-    console.log(result);
+    console.log('opexForTolling'+result);
     return result;
   }
 
   ebitdaForTolling(): number {
     let result = this.revenueForTolling() - this.opexForTolling();
-    console.log(result);
+    console.log('ebitdaForTolling'+result);
     return result;
   }
 
 
   ebitForTolling(): number {
     let result = this.ebitdaForTolling() - this.dAndA();
-    console.log(result);
+    console.log('ebitForTolling'+result);
     return result;
   }
 
   interestForTolling(): number {
     let result = (this.interestRateofDebtFinancing / 100) * (this.debtFiancing / 100) * this.TotalLNGprojectcapex();
-    console.log(result);
+    console.log('interestForTolling'+result);
     return result;
   }
 
   taxExpensesForTolling(): number {
-    let result = this.CorporateTaxRate * (this.ebitForTolling() - this.interestForTolling());
-    console.log(result);
+    let result = this.CorporateTaxRate/100 * (this.ebitForTolling() - this.interestForTolling());
+    console.log('taxExpensesForTolling'+result);
     return result;
   }
 
   patforTolling(): number {
     let result = this.ebitForTolling() - this.interestForTolling() - this.taxExpensesForTolling();
-    console.log(result);
+    console.log('patforTolling'+ result);
     return result;
   }
 }
