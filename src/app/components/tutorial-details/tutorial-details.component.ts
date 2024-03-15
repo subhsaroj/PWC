@@ -73,16 +73,16 @@ export class TutorialDetailsComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  TotalLNGprojectcapex(): number { return this.lngPlantCapacity * (this.onemtpaprojectcost) };
+  TotalLNGprojectcapex(): number { return this.lngPlantCapacity * (this.onemtpaprojectcost)/1000 };
 
   equityInvestmentForShareHolder1(): number {
-    return this.onemtpaprojectcost * ((100 - this.debtFiancing) / 100) * (this.equityShareHolder1 / 100);
+    return this.TotalLNGprojectcapex() * ((100 - this.debtFiancing) / 100) * (this.equityShareHolder1 / 100);
   }
   equityInvestmentForShareHolder2(): number {
-    return this.lngPlantCapacity * this.onemtpaprojectcost * ((100 - this.debtFiancing) / 100) * ((100 - this.equityShareHolder1) / 100);
+    return this.TotalLNGprojectcapex() * ((100 - this.debtFiancing) / 100) * ((100 - this.equityShareHolder1) / 100);
   }
   totalRevenue(): number {
-    return (this.lngPrice + this.naturalGasLiquafactionperunitcost) * this.lngPlantCapacity;
+    return (this.lngPrice) * this.lngPlantCapacity;
   }
   expenses(): number {
     return ((this.naturalGasPrice + this.naturalGasLiquafactionperunitcost) * this.lngPlantCapacity) / 1000;
@@ -91,7 +91,7 @@ export class TutorialDetailsComponent implements OnInit {
     return .04 * this.lngPlantCapacity * this.onemtpaprojectcost;
   }
   totalCost(): number {
-    return this.naturalGasPrice + this.naturalGasLiquafactionperunitcost + this.expenses() + this.otherOpexCost()
+    return this.expenses() + this.otherOpexCost()
   }
   ebitda(): number {
     return this.totalRevenue() - this.totalCost();
@@ -106,7 +106,7 @@ export class TutorialDetailsComponent implements OnInit {
     return this.interestRateofDebtFinancing * (this.debtFiancing / 100) * (this.lngPlantCapacity * this.onemtpaprojectcost);
   }
   tax(): number {
-    return this.CorporateTaxRate * (this.ebitda() - this.interest());
+    return this.CorporateTaxRate * (this.ebit() - this.interest());
   }
   pat(): number {
     return (this.ebitda() - this.dAndA()) - (this.interest()) - this.tax();
