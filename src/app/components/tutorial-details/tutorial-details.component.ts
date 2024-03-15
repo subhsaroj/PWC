@@ -95,7 +95,7 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   totalRevenueLNGPlant(): number {
-    let result = (this.lngPrice) * this.lngPlantCapacity;
+    let result = (this.lngPrice) * this.lngPlantCapacity/1000;
     console.log('totalRevenueLNGPlant'+result);
     return result;
   }
@@ -130,7 +130,7 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   interest(): number {
-    let result = this.interestRateofDebtFinancing * (this.debtFiancing / 100) * (this.lngPlantCapacity * this.onemtpaprojectcost);
+    let result = this.interestRateofDebtFinancing/100 * (this.debtFiancing / 100) * (this.lngPlantCapacity * this.onemtpaprojectcost);
     console.log('interest'+result);
     return result;
   }
@@ -155,7 +155,7 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   r1ForTotalFromSalesMarketingOfLng(): number {
-    let result = this.OfftakeAgreementofShareholder2 * this.longTermContractPercent / 100 * this.lngPrice * (1 + this.percentAdditiontoLNGExportpriceinUS / 100)/1000;
+    let result = this.OfftakeAgreementofShareholder2/100 * this.longTermContractPercent / 100 * this.lngPrice * (1 + this.percentAdditiontoLNGExportpriceinUS / 100)/1000;
     console.log('r1ForTotalFromSalesMarketingOfLng'+result);
     return result;
   }
