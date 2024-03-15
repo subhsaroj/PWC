@@ -120,40 +120,40 @@ export class TutorialDetailsComponent implements OnInit {
   patForTwo(): number {
     return this.pat() * this.equityShareHolder2 * this.returnSharingtoShareholders;
   }
-  r1ForTotal():number{
+  r1ForTotalFromSalesMarketingOfLng():number{
     let result = this.OfftakeAgreementofShareholder2*this.longTermContractPercent/100*this.lngPrice*(1+this.percentAdditiontoLNGExportpriceinUS/100);
   return result
   }
 
-  transportationCost():number{
+  transportationCostFromSalesMarketingOfLng():number{
     let result = .2*this.JKMLNGprice;
     return result;
   }
-  r2ForTotal():number{
-    let result = this.OfftakeAgreementofShareholder2*((100-this.longTermContractPercent)/100)*(this.JKMLNGprice-this.transportationCost()-(this.lngPrice *(1+this.percentAdditiontoLNGExportpriceinUS/100)));
+  r2ForTotalFromSalesMarketingOfLng():number{
+    let result = this.OfftakeAgreementofShareholder2*((100-this.longTermContractPercent)/100)*(this.JKMLNGprice-this.transportationCostFromSalesMarketingOfLng()-(this.lngPrice *(1+this.percentAdditiontoLNGExportpriceinUS/100)));
   return result
   }
 
-  r3ForTotal():number{
+  r3ForTotalFromSalesMarketingOfLng():number{
     let result = this.pat()*this.equityShareHolder2*this.profitSharing;
      return result;
   }
 
-  totalRevenueFromSalesMarketingOfLng(){
-    let result = this.r1ForTotal()+ this.r2ForTotal()+this.r3ForTotal();
-    
+  totalRevenueFromSalesMarketingOfLng():number{
+    let result = this.r1ForTotalFromSalesMarketingOfLng()+ this.r2ForTotalFromSalesMarketingOfLng()+this.r3ForTotalFromSalesMarketingOfLng();
+    return result;
   }
-  revenueForNGSales(): number {
+  revenueForNGSalesForIntegrated(): number {
     return (this.naturalGasPrice * this.feedGasSuppliedByShareHolder2 * (1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.lngPrice) / 1000;
   }
-  cogs(): number {
-    return (3 * 52 * ((1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.naturalGasPrice)) / 1001;
+  cogsForIntegrated(): number {
+    return (3 * 52 * ((1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.naturalGasPrice)) / 1000;
   }
-  opex(): number {
-    return .04 * (this.totalRevenueFromSalesMarketingOfLng() + this.revenueForNGSales());
+  opexForIntegrated(): number {
+    return .04 * (this.totalRevenueFromSalesMarketingOfLng() + this.revenueForNGSalesForIntegrated());
   }
   ebitdaForIntegrated(): number {
-    return this.totalRevenueFromSalesMarketingOfLng() + this.revenueForNGSales() - this.cogs() - this.opex();
+    return this.totalRevenueFromSalesMarketingOfLng() + this.revenueForNGSales() - this.cogsForIntegrated() - this.opexForIntegrated();
   }
   ebitForIntegrated(): number {
     return this.ebitdaForIntegrated() - this.dAndACost;
@@ -167,10 +167,19 @@ export class TutorialDetailsComponent implements OnInit {
     return this.ebitForIntegrated() - interestForIntegrated - this.taxForIntegrated();
   }
 
+  totalRevenueForTollingAndmerchant(): number {
+    let result = this.r1ForTotalFromSalesMarketingOfLng()+ this.r2ForTotalFromSalesMarketingOfLng()+this.r3ForTotalFromSalesMarketingOfLng();
+    return result;
+  }
+
+  opexForTollingAndMerchant():number{
+    let result =.04 * (this.totalRevenueForTollingAndmerchant());
+    return result;
+  }
   ebitdaForTollingAndmerchant(): number {
     let revenueForNGSalesForTollingAndmerchant = 0;
     let cogs = 0;
-    return this.totalRevenueFromSalesMarketingOfLng() + revenueForNGSalesForTollingAndmerchant - cogs - this.opex();
+    return this.totalRevenueForTollingAndmerchant() + revenueForNGSalesForTollingAndmerchant - cogs - this.opexForTollingAndMerchant();
   }
   ebitForTollingAndmerchant(): number {
     return this.ebitdaForTollingAndmerchant() - this.dAndACost;
