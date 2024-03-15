@@ -140,7 +140,7 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   patForLNGTerminal(): number {
-    let result = (this.ebitda() - this.dAndA()) - (this.interest()) - this.tax();
+    let result = (this.ebitda() - this.dAndA()) - (this.interest()/100) - this.tax();
     console.log('patForLNGTerminal'+result);
     return result;
   }
