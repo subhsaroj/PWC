@@ -135,7 +135,7 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   tax(): number {
-    let result = this.CorporateTaxRate * (this.ebit() - this.interest());
+    let result = this.CorporateTaxRate/100 * (this.ebit() - this.interest());
     console.log('tax'+result);
     return result;
   }
