@@ -34,6 +34,7 @@ export class TutorialDetailsComponent implements OnInit {
   JKMLNGprice: number = 35*52.4;
   onemtpaprojectcost: number = 1;
   feedGasSuppliedByShareHolder2 = 0;
+  feedGasSuppliedBySHareHolder2ForIntegrated:number = 50/100;
   dAndACost: number = 0;
   liquifactionCost: number = 208;
 
@@ -78,7 +79,7 @@ export class TutorialDetailsComponent implements OnInit {
 
   }
   TotalLNGprojectcapex(): number {
-    let result = this.lngPlantCapacity * (this.onemtpaprojectcost) / 1000;
+    let result = this.lngPlantCapacity * (this.onemtpaprojectcost) ;
     console.log('TotalLNGprojectcapex'+result);
     return result;
   }
@@ -155,7 +156,7 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   r1ForTotalFromSalesMarketingOfLng(): number {
-    let result = this.OfftakeAgreementofShareholder2/100 * this.longTermContractPercent / 100 * this.lngPrice * (1 + this.percentAdditiontoLNGExportpriceinUS / 100)/1000;
+    let result = this.lngPlantCapacity*this.OfftakeAgreementofShareholder2/100 * this.longTermContractPercent / 100 * this.lngPrice * (this.percentAdditiontoLNGExportpriceinUS / 100)/1000;
     console.log('r1ForTotalFromSalesMarketingOfLng'+result);
     return result;
   }
@@ -183,12 +184,12 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   revenueForNGSalesForIntegrated(): number {
-    let result = (this.naturalGasPrice * this.feedGasSuppliedByShareHolder2 * (1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.lngPrice) / 1000;
+    let result = this.lngPlantCapacity*(this.naturalGasPrice * this.feedGasSuppliedBySHareHolder2ForIntegrated * (1 + (this.percentAdditiontoLNGExportpriceinUS / 100))) / 1000;
     console.log('revenueForNGSalesForIntegrated'+result);
     return result;
   }
   cogsForIntegrated(): number {
-    let result = (3 * 52 * ((1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) * this.naturalGasPrice)) / 1000;
+    let result = (3 * 52 * ((1 + (this.percentAdditiontoLNGExportpriceinUS / 100)) ))*this.lngPlantCapacity*this.feedGasSuppliedBySHareHolder2ForIntegrated/1000 ;
     console.log('cogsForIntegrated'+result);
     return result;
   }
@@ -210,7 +211,7 @@ export class TutorialDetailsComponent implements OnInit {
   }
   taxForIntegrated(): number {
     let interestForIntegrated = .01;
-    let result = this.CorporateTaxRate * (this.ebitForIntegrated() - interestForIntegrated);
+    let result = this.CorporateTaxRate/100 * (this.ebitForIntegrated() - interestForIntegrated);
     console.log('taxForIntegrated'+result);
     return result;
   }
@@ -247,7 +248,7 @@ export class TutorialDetailsComponent implements OnInit {
   }
   taxForTollingAndmerchant(): number {
     let interestForIntegrated = .03;
-    let result = this.CorporateTaxRate * (this.ebitForTollingAndmerchant() - interestForIntegrated);
+    let result = this.CorporateTaxRate/100 * (this.ebitForTollingAndmerchant() - interestForIntegrated);
     console.log('taxForTollingAndmerchant'+result);
     return result;
   }
@@ -264,7 +265,7 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   opexForTolling(): number {
-    let result = this.TotalLNGprojectcapex() / 1000;
+    let result = .04*this.TotalLNGprojectcapex() / 1000;
     console.log('opexForTolling'+result);
     return result;
   }
