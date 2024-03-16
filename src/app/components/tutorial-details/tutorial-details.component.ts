@@ -20,8 +20,8 @@ export class TutorialDetailsComponent implements OnInit {
   equatyFiancing: number = 30;
   costOfDebt: number = 5;
   costOfEquaty: number = 15;
-  lngPrice: number = 645;
-  naturalGasPrice: number = 335;
+  lngPrice: number = 12.6*52.4;
+  naturalGasPrice: number = 6.4*52.4;
   naturalGasLiquafactionperunitcost: number = 105;
   CorporateTaxRate: number = 25;
   returnSharingtoShareholders: number = 30;
@@ -31,7 +31,7 @@ export class TutorialDetailsComponent implements OnInit {
   usLNGExportPrice: number = 645;
 
   percentAdditiontoLNGExportpriceinUS: number = 12;
-  JKMLNGprice: number = 35;
+  JKMLNGprice: number = 35*52.4;
   onemtpaprojectcost: number = 1;
   feedGasSuppliedByShareHolder2 = 0;
   dAndACost: number = 0;
@@ -140,7 +140,7 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   patForLNGTerminal(): number {
-    let result = (this.ebitda() - this.dAndA()) - (this.interest()/100) - this.tax();
+    let result = (this.ebitda() - this.dAndA()) - (this.interest()) - this.tax();
     console.log('patForLNGTerminal'+result);
     return result;
   }
@@ -166,13 +166,13 @@ export class TutorialDetailsComponent implements OnInit {
     return result;
   }
   r2ForTotalFromSalesMarketingOfLng(): number {
-    let result = this.OfftakeAgreementofShareholder2 * ((100 - this.longTermContractPercent) / 100) * (this.JKMLNGprice - this.transportationCostFromSalesMarketingOfLng() - (this.lngPrice * (1 + this.percentAdditiontoLNGExportpriceinUS / 100)))/1000;
+    let result = this.lngPlantCapacity*this.OfftakeAgreementofShareholder2/100 * ((100 - this.longTermContractPercent) / 100) * (this.JKMLNGprice - this.transportationCostFromSalesMarketingOfLng() - (this.lngPrice ))/1000;
     console.log('r2ForTotalFromSalesMarketingOfLng'+result);
     return result
   }
 
   r3ForTotalFromSalesMarketingOfLng(): number {
-    let result = this.patForLNGTerminal() * this.equityShareHolder2 * this.returnSharingtoShareholders/1000;
+    let result = this.patForLNGTerminal() * this.equityShareHolder2/100 * this.returnSharingtoShareholders/100;
     console.log('r3ForTotalFromSalesMarketingOfLng'+result);
     return result;
   }
