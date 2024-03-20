@@ -6,21 +6,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
-import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { CalculateDetailsComponent } from './components/calculate-details/calculate-details.component';
+import { FormInputComponent } from './components/form-input/form-input.component';
+import { AboutUSComponent } from './components/about-us/about-us.component';
+import { IndustriesComponent } from './components/industries/industries.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddTutorialComponent,
-    TutorialDetailsComponent
+    CalculateDetailsComponent,
+    FormInputComponent,
+    AboutUSComponent,
+    IndustriesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxDocViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

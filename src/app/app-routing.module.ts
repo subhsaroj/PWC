@@ -1,13 +1,40 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
+import { CalculateDetailsComponent } from './components/calculate-details/calculate-details.component';
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { AppComponent } from './app.component';
+import { FormInputComponent } from './components/form-input/form-input.component';
+import { AboutCalculationComponent } from './components/about-calculation/about-calculation.component';
+import { AboutUSComponent } from './components/about-us/about-us.component';
+import { IndustriesComponent } from './components/industries/industries.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' }
- 
+  {
+    path: '',
+    component: AboutCalculationComponent,
+  },
+  {
+    path: 'home',
+    component: AboutCalculationComponent,
+  },
+  {
+    path: 'insights',
+    component: AddTutorialComponent,
+  },
+  {
+    path: 'calculations',
+    component: FormInputComponent,
+  },
+  {
+    path: 'aboutUs',
+    component: AboutUSComponent,
+  },
+  {
+    path: 'industries',
+    component: IndustriesComponent,
+  }
+
 ];
 
 @NgModule({

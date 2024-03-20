@@ -1,0 +1,258 @@
+<div>
+    <div class ='container'>
+        <div class = 'row'>
+        <div class="col">
+            <div class="register-form">
+                <div class="row h-100 justify-content-center align-items-center"
+                    style="font-weight: 600;font-size: large;">
+                    User Inputs for ROI/IRR calculations</div>
+                <br><br><br><br>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="container">
+                        <div class="row">
+                            <div class="form-group col">
+                                <label>LNG Plant Capacity (in mtpa)</label>
+                                <input type="text" formControlName="lngPlantCapacity" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['lngPlantCapacity'].errors }" />
+                                <div *ngIf="submitted && f['lngPlantCapacity'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['lngPlantCapacity'].errors['required']">LNG Plant Capacity is required
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col">
+                                <label>Capacity Utilization (0%-100%)</label>
+                                <input type="text" formControlName="capacityUtilization" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['capacityUtilization'].errors }" />
+                                <div *ngIf="submitted && f['capacityUtilization'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['capacityUtilization'].errors['required']">Capacity Utilization is
+                                        required</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label>Offtake-long term Contracts (0%-100%)</label>
+                                <input type="text" formControlName="offtakeLongtermCOntracts" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['offtakeLongtermCOntracts'].errors }" />
+                                <div *ngIf="submitted && f['offtakeLongtermCOntracts'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['offtakeLongtermCOntracts'].errors['required']">Offtake-long term
+                                        Contracts is required
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group">
+              <label>Equity Stack Share Holder1 (0%-100%)</label>
+              <input type="text" formControlName="equityShareHolder1" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['equityShareHolder1'].errors }" />
+              <div *ngIf="submitted && f['equityShareHolder1'].errors" class="invalid-feedback">
+                <div *ngIf="f['equityShareHolder1'].errors['required']">Equity Stack is required</div>
+                
+              </div>
+            </div> -->
+                            <div class="form-group col">
+                                <label>Equity Stack Share Holder2 (0%-100%)</label>
+                                <input type="text" formControlName="equityShareHolder2" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['equityShareHolder2'].errors }" />
+                                <div *ngIf="submitted && f['equityShareHolder2'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['equityShareHolder2'].errors['required']">Equity Stack is required
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label>Interest Rate of Debt Financing(0%-100%)</label>
+                                <input type="text" formControlName="interestRateofDebtFinancing" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['interestRateofDebtFinancing'].errors }" />
+                                <div *ngIf="submitted && f['interestRateofDebtFinancing'].errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="f['interestRateofDebtFinancing'].errors['required']">Debt financing is
+                                        required</div>
+
+                                </div>
+                            </div>
+                            <div class="form-group col">
+                                <label>Debt financing (0%-100%)</label>
+                                <input type="text" formControlName="debtFiancing" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['debtFiancing'].errors }" />
+                                <div *ngIf="submitted && f['debtFiancing'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['debtFiancing'].errors['required']">Debt financing is required</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+              <label>Feed Gas Supplied By ShareHolder2</label>
+              <input type="text" formControlName="feedGasSuppliedByShareHolder2" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['feedGasSuppliedByShareHolder2'].errors }" />
+              <div *ngIf="submitted && f['feedGasSuppliedByShareHolder2'].errors" class="invalid-feedback">
+                <div *ngIf="f['feedGasSuppliedByShareHolder2'].errors['required']">Feed Gas Supplied By ShareHolder2 is required</div>
+               
+              </div>
+            </div> -->
+
+                        <!-- <div class="form-group">
+              <label>Equity Financing (0%-100%)</label>
+              <input type="text" formControlName="equatyFiancing" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f['equatyFiancing'].errors }" />
+              <div *ngIf="submitted && f['equatyFiancing'].errors" class="invalid-feedback">
+                <div *ngIf="f['equatyFiancing'].errors['required']">Equity Financing is required</div>
+                
+              </div>
+            </div> -->
+                        <div class="row">
+                            <div class="form-group col">
+                                <label>Cost of debt (0%-100%)</label>
+                                <input type="text" formControlName="costOfDebt" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['costOfDebt'].errors }" />
+                                <div *ngIf="submitted && f['costOfDebt'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['costOfDebt'].errors['required']">Cost of debt is required</div>
+
+                                </div>
+                            </div>
+                            <div class="form-group col">
+                                <label>Cost of Equity (0%-100%)</label>
+                                <input type="text" formControlName="costOfEquaty" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['costOfEquaty'].errors }" />
+                                <div *ngIf="submitted && f['costOfEquaty'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['costOfEquaty'].errors['required']">Cost of Equity is required</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label>Natural gas price ($/thousand cubic feet)</label>
+                                <input type="text" formControlName="naturalGasPrice" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['naturalGasPrice'].errors }" />
+                                <div *ngIf="submitted && f['naturalGasPrice'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['naturalGasPrice'].errors['required']">Natural gas price is required
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group col">
+                                <label>LNG price ($/thousand cubic feet)</label>
+                                <input type="text" formControlName="lngPrice" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['lngPrice'].errors }" />
+                                <div *ngIf="submitted && f['lngPrice'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['lngPrice'].errors['required']">LNG price is required</div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="form-group col">
+                                <label>Natural Gas Liquafaction per unit cost (0%-100%)</label>
+                                <input type="text" formControlName="naturalGasLiquafactionperunitcost"
+                                    class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['naturalGasLiquafactionperunitcost'].errors }" />
+                                <div *ngIf="submitted && f['naturalGasLiquafactionperunitcost'].errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="f['naturalGasLiquafactionperunitcost'].errors['required']">Natural Gas
+                                        Liquafaction per
+                                        unit cost</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col">
+                                <label>Corporate Tax Rate (0%-100%)</label>
+                                <input type="text" formControlName="CorporateTaxRate" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['CorporateTaxRate'].errors }" />
+                                <div *ngIf="submitted && f['CorporateTaxRate'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['CorporateTaxRate'].errors['required']">Corporate Tax Rate is required
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label>Return Sharing to Shareholders (0%-100%)</label>
+                                <input type="text" formControlName="returnSharingtoShareholders" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['returnSharingtoShareholders'].errors }" />
+                                <div *ngIf="submitted && f['returnSharingtoShareholders'].errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="f['returnSharingtoShareholders'].errors['required']">Return Sharing to
+                                        Shareholders is
+                                        required
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col">
+                                <label>Offtake Agreement of Shareholder2 (0%-100%)</label>
+                                <input type="text" formControlName="OfftakeAgreementofShareholder2" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['OfftakeAgreementofShareholder2'].errors }" />
+                                <div *ngIf="submitted && f['OfftakeAgreementofShareholder2'].errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="f['OfftakeAgreementofShareholder2'].errors['required']">Offtake
+                                        Agreement of
+                                        Shareholder2
+                                        is required</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col">
+                                <label>Long Term Contract (0%-100%)</label>
+                                <input type="text" formControlName="longTermContract" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['longTermContract'].errors }" />
+                                <div *ngIf="submitted && f['longTermContract'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['longTermContract'].errors['required']">Long Term Contract</div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group col">
+                                <label>Percent Addition to LNG Export price in US(0%-100%)</label>
+                                <input type="text" formControlName="percentAdditiontoLNGExportpriceinUS"
+                                    class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f['percentAdditiontoLNGExportpriceinUS'].errors }" />
+                                <div *ngIf="submitted && f['percentAdditiontoLNGExportpriceinUS'].errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf="f['percentAdditiontoLNGExportpriceinUS'].errors['required']">Percent
+                                        Addition to LNG
+                                        Export price in US is required</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="form-group col">
+                            <label>JKMLNG price ($/ton)</label>
+                            <input type="text" formControlName="JKMLNGprice" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f['JKMLNGprice'].errors }" />
+                            <div *ngIf="submitted && f['JKMLNGprice'].errors" class="invalid-feedback">
+                                <div *ngIf="f['JKMLNGprice'].errors['required']">JKMLNG price is required</div>
+
+                            </div>
+                        </div></div>
+                        <div class="row"></div>
+                    </div>
+
+                    <button type="reset" class="btn btn-primary" (click)="onReset()" style="float: left;">Reset</button>
+                    <button type="submit" class="btn btn-primary" (click)="onSubmit()"
+                        style="float: right;">Calculate</button>
+
+
+                </form>
+            </div>
+        </div>
+        <div class="col"><app-calculate-details [inputFormValues]="inputFormValues"></app-calculate-details></div></div>
+    </div>
+    <div>
+
+    </div>
+</div>

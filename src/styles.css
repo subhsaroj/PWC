@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url('https://cdn-network.chimpreports.com/wp-content/uploads/2018/06/PwC-office-2-e1467276247799-1-e1528886904200.jpg');
+    background-size: cover; /* or contain, depending on your preference */
+    background-repeat: no-repeat;
+  }
