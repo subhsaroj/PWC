@@ -1,0 +1,45 @@
+.image-container {
+    position: relative;
+    display: inline-block; /* Ensure the container takes up only the necessary space */
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .item {
+    position: absolute;
+    background-color: orange; /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+    /* Adjust positioning and styling as needed */
+  }
+  
+  /* Example styling for individual items */
+  .item:nth-child(1) {
+    top: 20px;
+    left: 200px;
+  }
+  
+  .item:nth-child(2) {
+    top: 80px;
+    left: 200px;
+  }
+  
+  .item:nth-child(3) {
+    top: 140px;
+    left: 200px;
+  }
+  .item:nth-child(4) {
+    top: 200px;
+    left: 200px;
+  }
+  .item:nth-child(5) {
+    top: 260px;
+    left: 200px;
+  }
+  

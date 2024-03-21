@@ -11,6 +11,7 @@ import { CalculateDetailsComponent } from './components/calculate-details/calcul
 import { FormInputComponent } from './components/form-input/form-input.component';
 import { AboutUSComponent } from './components/about-us/about-us.component';
 import { IndustriesComponent } from './components/industries/industries.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { IndustriesComponent } from './components/industries/industries.componen
     CalculateDetailsComponent,
     FormInputComponent,
     AboutUSComponent,
-    IndustriesComponent
+    IndustriesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

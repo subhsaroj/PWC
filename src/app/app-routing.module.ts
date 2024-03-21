@@ -8,6 +8,9 @@ import { FormInputComponent } from './components/form-input/form-input.component
 import { AboutCalculationComponent } from './components/about-calculation/about-calculation.component';
 import { AboutUSComponent } from './components/about-us/about-us.component';
 import { IndustriesComponent } from './components/industries/industries.component';
+import { SubscriptionComponent } from './components/subscription/subscrition.component';
+import { valuedServicesComponent } from './components/valuedServices/valuedServices.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -31,8 +34,20 @@ const routes: Routes = [
     component: AboutUSComponent,
   },
   {
+    path: 'dashboard',
+    component: DashboardComponent,
+  },
+  {
     path: 'industries',
     component: IndustriesComponent,
+  },
+  {
+    path: 'subscription',
+    component: SubscriptionComponent,
+  },
+  {
+    path: 'services',
+    component: valuedServicesComponent,
   }
 
 ];
